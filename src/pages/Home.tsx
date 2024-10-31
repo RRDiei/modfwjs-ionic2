@@ -1,7 +1,7 @@
 import {
   IonCard,
+  IonCardContent,
   IonCardHeader,
-  IonCardSubtitle,
   IonCardTitle,
   IonContent,
   IonHeader,
@@ -18,17 +18,14 @@ import { Pagination } from "swiper/modules";
 
 import { PeliculasContext } from "../App";
 import { useContext } from "react";
+import Toolbar from "../components/Toolbar/Toolbar";
 
 const Home: React.FC = () => {
   const peliculas = useContext(PeliculasContext);
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar color="primary" className="ion-text-center">
-          <IonTitle>Películas Recientes</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Toolbar />
       <IonContent className="ion-padding">
         <Swiper pagination={true} modules={[Pagination]}>
           {peliculas?.map((pelicula) => (
@@ -41,6 +38,11 @@ const Home: React.FC = () => {
                 <IonCardHeader>
                   <IonCardTitle>{pelicula.title}</IonCardTitle>
                 </IonCardHeader>
+                <IonCardContent>
+                  {pelicula.overview
+                    ? `${pelicula.overview.slice(0, 150)}...`
+                    : "Sin descripción disponible"}
+                </IonCardContent>
               </IonCard>
             </SwiperSlide>
           ))}
