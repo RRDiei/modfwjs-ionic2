@@ -7,9 +7,12 @@ import {
 } from "@ionic/react";
 import "./Home.css";
 
-import peliculas from "../assets/movies.json";
+import { PeliculasContext } from "../App";
+import { useContext } from "react";
 
 const Home: React.FC = () => {
+  const peliculas = useContext(PeliculasContext);
+
   return (
     <IonPage>
       <IonHeader>
@@ -17,7 +20,11 @@ const Home: React.FC = () => {
           <IonTitle>Películas Recientes</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent></IonContent>
+      <IonContent className="ion-padding">
+        {peliculas?.map((peli) => (
+          <p key={peli.id}>{peli.title}</p>
+        ))}
+      </IonContent>
     </IonPage>
   );
 };
