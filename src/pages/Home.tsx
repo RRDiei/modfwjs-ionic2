@@ -1,4 +1,8 @@
 import {
+  IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
   IonContent,
   IonHeader,
   IonPage,
@@ -6,6 +10,11 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import "./Home.css";
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
 import { PeliculasContext } from "../App";
 import { useContext } from "react";
@@ -21,9 +30,21 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        {peliculas?.map((peli) => (
-          <p key={peli.id}>{peli.title}</p>
-        ))}
+        <Swiper pagination={true} modules={[Pagination]}>
+          {peliculas?.map((pelicula) => (
+            <SwiperSlide key={pelicula.id}>
+              <IonCard className="ion-text-center ion-padding ion-margin">
+                <img
+                  alt={pelicula.title}
+                  src={`https://image.tmdb.org/t/p/w220_and_h330_face${pelicula.poster_path}`}
+                />
+                <IonCardHeader>
+                  <IonCardTitle>{pelicula.title}</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </IonContent>
     </IonPage>
   );
