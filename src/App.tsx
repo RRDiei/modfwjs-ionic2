@@ -38,6 +38,7 @@ import { useState, useEffect, createContext } from "react";
 import peliculas from "./assets/movies.json";
 import { Pelicula } from "./helpers";
 import About from "./pages/About";
+import Detalles from "./pages/Detalles";
 
 export const PeliculasContext = createContext<Pelicula[] | null>(null);
 
@@ -63,6 +64,7 @@ const App: React.FC = () => {
           {/* <IonRouterOutlet> */}
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
+          <Route path="/peliculas/:id" component={Detalles} />
           {/* </IonRouterOutlet> */}
         </IonReactRouter>
       </IonApp>

@@ -1,16 +1,16 @@
 import {
+  IonBackButton,
   IonButtons,
   IonContent,
   IonHeader,
   IonItem,
   IonMenu,
   IonMenuButton,
-  IonMenuToggle,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
 
-const Toolbar: React.FC = () => {
+const Toolbar: React.FC<{ back: boolean }> = ({ back }) => {
   return (
     <>
       <IonMenu contentId="menu" side="end">
@@ -28,9 +28,11 @@ const Toolbar: React.FC = () => {
           </IonItem>
         </IonContent>
       </IonMenu>
-      <IonHeader>
+      <IonHeader className="ion-text-start">
         <IonToolbar color="primary">
+          <IonButtons slot="start"></IonButtons>
           <IonButtons slot="end">
+            {back ? <IonBackButton defaultHref="/" /> : ""}
             <IonMenuButton autoHide={false} id="menu" />
           </IonButtons>
           <IonTitle>Películas Recientes</IonTitle>

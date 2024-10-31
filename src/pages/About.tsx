@@ -4,7 +4,7 @@ import Toolbar from "../components/Toolbar/Toolbar";
 const About: React.FC = () => {
   return (
     <IonPage>
-      <Toolbar />
+      <Toolbar back={true} />
       <IonContent className="ion-padding">
         <IonText>
           <h2>Acerca de esta aplicación</h2>
