@@ -30,7 +30,7 @@ const Home: React.FC = () => {
             <SwiperSlide key={pelicula.id} style={{ paddingBottom: "15px" }}>
               <IonCard
                 className="ion-text-center ion-padding ion-margin"
-                style={{ height: "550px" }}
+                style={{ height: "450px" }}
               >
                 <Link to={`/peliculas/${String(pelicula.id)}`}>
                   <img
@@ -41,11 +41,6 @@ const Home: React.FC = () => {
                 <IonCardHeader>
                   <IonCardTitle>{pelicula.title}</IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>
-                  {pelicula.overview
-                    ? `${pelicula.overview.slice(0, 150)}...`
-                    : "Sin descripción disponible"}
-                </IonCardContent>
               </IonCard>
             </SwiperSlide>
           ))}
