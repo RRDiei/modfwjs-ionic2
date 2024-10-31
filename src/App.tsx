@@ -1,7 +1,12 @@
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
+import { useState, useEffect, createContext } from "react";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+
+/* Páginas */
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Detalles from "./pages/Detalles";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -33,12 +38,10 @@ import "@ionic/react/css/palettes/dark.system.css";
 /* Theme variables */
 import "./theme/variables.css";
 
-import { useState, useEffect, createContext } from "react";
-
+/* Utilidades */
 import peliculas from "./assets/movies.json";
 import { Pelicula } from "./helpers";
-import About from "./pages/About";
-import Detalles from "./pages/Detalles";
+
 
 export const PeliculasContext = createContext<Pelicula[] | null>(null);
 
@@ -64,7 +67,8 @@ const App: React.FC = () => {
           {/* <IonRouterOutlet> */}
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route path="/peliculas/:id" component={Detalles} />
+          <Route exact path="/peliculas/:id" component={Detalles} />
+          <Route render={() => <Redirect to="/" />} />
           {/* </IonRouterOutlet> */}
         </IonReactRouter>
       </IonApp>

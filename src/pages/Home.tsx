@@ -16,7 +16,6 @@ import { Pagination } from "swiper/modules";
 import { PeliculasContext } from "../App";
 import { useContext } from "react";
 import Toolbar from "../components/Toolbar/Toolbar";
-import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
