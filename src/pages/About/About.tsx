@@ -1,5 +1,5 @@
 import { IonContent, IonPage, IonText } from "@ionic/react";
-import Toolbar from "../components/Toolbar/Toolbar";
+import Toolbar from "../../components/Toolbar/Toolbar";
 
 const About: React.FC = () => {
   return (

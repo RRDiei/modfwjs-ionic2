@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PeliculasContext } from "../App";
+import { PeliculasContext } from "../../App";
 import { useParams } from "react-router-dom";
 import {
   IonCard,
@@ -15,7 +15,7 @@ import {
 
 import { medalOutline, calendarOutline } from "ionicons/icons";
 
-import Toolbar from "../components/Toolbar/Toolbar";
+import Toolbar from "../../components/Toolbar/Toolbar";
 
 const Detalles: React.FC = () => {
   const peliculas = useContext(PeliculasContext);
@@ -33,7 +33,7 @@ const Detalles: React.FC = () => {
   }
 
   return (
-    <IonPage>
+    <IonPage className="ion-justify-content-center">
       <Toolbar back={true} />
       <IonContent className="ion-padding">
         <IonCard className="ion-text-center ion-padding-top">
