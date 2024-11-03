@@ -1,6 +1,4 @@
-import { useContext } from "react";
-import { PeliculasContext } from "../../App";
-import { useParams } from "react-router-dom";
+/* Componentes de Ionic */
 import {
   IonCard,
   IonCardContent,
@@ -12,22 +10,31 @@ import {
   IonLabel,
   IonPage,
 } from "@ionic/react";
-
 import { medalOutline, calendarOutline } from "ionicons/icons";
 
+/* Utilidades de React */
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
+
+/* Componentes de la aplicación */
 import Toolbar from "../../components/Toolbar/Toolbar";
 
+/* Contexto */
+import { PeliculasContext } from "../../App";
+
+/* Página Detalles */
 const Detalles: React.FC = () => {
   const peliculas = useContext(PeliculasContext);
   const { id } = useParams<{ id: string }>();
 
   const pelicula = peliculas?.find((peli) => peli.id === +id);
 
+  /* Lógica en caso de película no encontrada */
   if (!pelicula) {
     return (
       <IonPage>
         <Toolbar back={true} />
-        <IonContent className="ion-padding">Película encontrada</IonContent>
+        <IonContent className="ion-padding">Película no encontrada</IonContent>
       </IonPage>
     );
   }

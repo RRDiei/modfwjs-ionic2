@@ -1,3 +1,4 @@
+/* Componentes de Ionic */
 import {
   IonBackButton,
   IonButtons,
@@ -7,8 +8,10 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
+/* Componentes de la aplicación */
 import Menu from "../Menu/Menu";
 
+/* Barra de herramientas de la aplicación */
 const Toolbar: React.FC<{ back: boolean }> = ({ back }) => {
   return (
     <>

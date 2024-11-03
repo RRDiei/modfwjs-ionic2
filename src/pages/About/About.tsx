@@ -1,6 +1,10 @@
+/* Componentes de Ionic */
 import { IonContent, IonPage, IonText } from "@ionic/react";
+
+/* Componentes de la aplicación */
 import Toolbar from "../../components/Toolbar/Toolbar";
 
+/* Página About */
 const About: React.FC = () => {
   return (
     <IonPage>

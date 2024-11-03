@@ -1,6 +1,6 @@
 import { Redirect, Route } from "react-router-dom";
 import { useState, useEffect, createContext } from "react";
-import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
+import { IonApp, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
 /* Páginas */
@@ -42,14 +42,17 @@ import "./theme/variables.css";
 import peliculas from "./assets/movies.json";
 import { Pelicula } from "./helpers";
 
-
+/* Contextos */
 export const PeliculasContext = createContext<Pelicula[] | null>(null);
 
+/* Inicializa Ionic */
 setupIonicReact();
 
+/* App principal y rutas */
 const App: React.FC = () => {
   const [cincoPeliculas, setCincoPeliculas] = useState<Pelicula[] | null>(null);
 
+  /* Selecciona cinco películas al azar del archivo de películas al iniciar la aplicación */
   useEffect(() => {
     const peliculasElegidas = new Set<Pelicula>();
     while (peliculasElegidas.size < 5) {
@@ -64,12 +67,10 @@ const App: React.FC = () => {
     <PeliculasContext.Provider value={cincoPeliculas}>
       <IonApp>
         <IonReactRouter>
-          {/* <IonRouterOutlet> */}
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/peliculas/:id" component={Detalles} />
           <Route render={() => <Redirect to="/" />} />
-          {/* </IonRouterOutlet> */}
         </IonReactRouter>
       </IonApp>
     </PeliculasContext.Provider>

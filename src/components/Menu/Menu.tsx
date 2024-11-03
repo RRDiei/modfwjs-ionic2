@@ -1,3 +1,4 @@
+/* Componentes de Ionic */
 import {
   IonContent,
   IonHeader,
@@ -10,6 +11,7 @@ import {
 } from "@ionic/react";
 import { clipboardOutline, homeOutline } from "ionicons/icons";
 
+/* Menú de opciones */
 const Menu: React.FC = () => {
   return (
     <IonMenu contentId="menu" side="end">

@@ -1,3 +1,4 @@
+/* Componentes de Ionic */
 import {
   IonCard,
   IonCardHeader,
@@ -9,14 +10,22 @@ import "./Home.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
+/* Componentes de Swiper */
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Mousewheel, Pagination } from "swiper/modules";
 
-import { PeliculasContext } from "../../App";
+
+/* Componentes de React */
 import { useContext } from "react";
-import Toolbar from "../../components/Toolbar/Toolbar";
 import { Link } from "react-router-dom";
 
+/* Componentes de la aplicación */
+import Toolbar from "../../components/Toolbar/Toolbar";
+
+/* Contexto */
+import { PeliculasContext } from "../../App";
+
+/* Página Home */
 const Home: React.FC = () => {
   const peliculas = useContext(PeliculasContext);
 
